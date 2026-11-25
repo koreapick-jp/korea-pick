@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="韓国旅行をもっとスマートに。旅行に役立つ便利ツールと情報を紹介します。">
+  <title>Korea Pick | 韓国旅行を、もっとスマートに。</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans JP", sans-serif;
+      color: #26352f;
+      background: #f7f9f7;
+    }
+    header {
+      background: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 23px; font-weight: 800; color: #174d3b; }
+    .hero {
+      background: #174d3b;
+      color: white;
+      padding: 75px 20px;
+      text-align: center;
+    }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); }
+    .hero p { color: #d7e8df; }
+    main { max-width: 1000px; margin: 45px auto; padding: 0 20px; }
+    .section-title { margin-bottom: 22px; }
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .tool {
+      background: white;
+      border: 1px solid #e6ece8;
+      border-radius: 14px;
+      padding: 25px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .tool:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px #0000000d;
+    }
+    .tool-icon { font-size: 30px; }
+    .tool h3 { margin-bottom: 8px; }
+    .tool p { color: #75837b; font-size: 14px; }
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #89958e;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Korea Pick</div>
+    <span>韓国旅行ガイド</span>
+  </header>
+
+  <section class="hero">
+    <h1>韓国旅行を、もっとスマートに。</h1>
+    <p>旅行の準備から現地で役立つ情報まで。</p>
+  </section>
+
+  <main>
+    <h2 class="section-title">旅行に役立つ便利ツール</h2>
+    <div class="tools">
+      <a class="tool" href="#" onclick="return false">
+        <div class="tool-icon">💱</div>
+        <h3>通貨換算</h3>
+        <p>日本円と韓国ウォンを換算</p>
+      </a>
+      <a class="tool" href="#" onclick="return false">
+        <div class="tool-icon">🧮</div>
+        <h3>旅行予算計算</h3>
+        <p>韓国旅行に必要な費用を計算</p>
+      </a>
+      <a class="tool" href="#" onclick="return false">
+        <div class="tool-icon">🧳</div>
+        <h3>持ち物チェック</h3>
+        <p>旅行前の準備をチェック</p>
+      </a>
+      <a class="tool" href="#" onclick="return false">
+        <div class="tool-icon">🚆</div>
+        <h3>空港アクセス</h3>
+        <p>空港から市内への移動情報</p>
+      </a>
+      <a class="tool" href="#" onclick="return false">
+        <div class="tool-icon">🛃</div>
+        <h3>持ち込み・免税ルール</h3>
+        <p>旅行前に知っておきたいルール</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Korea Pick
+  </footer>
+</body>
+</html>
