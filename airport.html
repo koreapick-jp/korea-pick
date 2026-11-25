@@ -1,60 +1,428 @@
 
-<!-- 空港リムジンバス -->
-<section class="card">
-  <span class="tag">乗り換えなしで移動</span>
-  <h2>空港リムジンバス</h2>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="仁川空港・金浦空港からソウル市内へのアクセス方法を紹介します。">
+  <title>韓国の空港アクセス | Korea Pick</title>
 
-  <p>
-    空港からソウル市内の主要エリアへ向かうバスです。
-    大きな荷物を持っているときや、
-    乗り換えなしで移動したいときに便利です。
-  </p>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  <div class="info">
-    <strong>乗車場所の目安</strong><br>
-    第1ターミナル：1階到着ロビー外のバス乗り場<br>
-    第2ターミナル：地下1階交通センター<br><br>
-    ※乗り場は路線によって異なります。
-    当日の案内表示や乗車券を確認してください。
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans JP", sans-serif;
+      color: #26352f;
+      background: #f7f9f7;
+      line-height: 1.7;
+    }
+
+    header {
+      background: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: #174d3b;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #557064;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .hero {
+      background: #174d3b;
+      color: white;
+      padding: 35px 25px;
+      border-radius: 14px;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(25px, 5vw, 36px);
+    }
+
+    .hero p {
+      color: #d7e8df;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .airport-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .airport-tab {
+      padding: 14px 10px;
+      border: 1px solid #e1e9e3;
+      border-radius: 12px;
+      background: white;
+      color: #174d3b;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .airport-tab.active {
+      background: #174d3b;
+      color: white;
+      border-color: #174d3b;
+    }
+
+    .section-title {
+      color: #174d3b;
+      font-size: 22px;
+      margin: 28px 0 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e6ece8;
+      border-radius: 14px;
+      padding: 25px;
+      margin-bottom: 18px;
+    }
+
+    .card h2 {
+      color: #174d3b;
+      font-size: 21px;
+      margin: 5px 0 12px;
+    }
+
+    .card p {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #edf4ef;
+      color: #276047;
+      border-radius: 7px;
+      padding: 4px 11px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .info {
+      background: #f5f8f5;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .link-button {
+      display: block;
+      text-align: center;
+      background: #174d3b;
+      color: white;
+      text-decoration: none;
+      padding: 14px 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background .2s;
+    }
+
+    .link-button:hover {
+      background: #23654d;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .sub-link {
+      display: inline-block;
+      color: #276047;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 15px;
+      text-decoration: none;
+    }
+
+    .note {
+      font-size: 12px !important;
+      color: #89958e;
+      margin-top: 16px !important;
+    }
+
+    .coming-soon {
+      background: white;
+      border: 1px solid #e6ece8;
+      border-radius: 14px;
+      padding: 45px 20px;
+      text-align: center;
+    }
+
+    .coming-soon h2 {
+      color: #174d3b;
+      margin-top: 0;
+    }
+
+    .coming-soon p {
+      color: #75837b;
+      font-size: 14px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #89958e;
+      font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        margin-top: 25px;
+        padding: 0 15px;
+      }
+
+      .card {
+        padding: 19px;
+      }
+
+      .button-grid {
+        gap: 8px;
+      }
+
+      .link-button {
+        font-size: 13px;
+        padding: 13px 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a class="logo" href="index.html">Korea Pick</a>
+    <span>韓国旅行ガイド</span>
+  </header>
+
+  <div class="container">
+
+    <a class="back" href="index.html">← ホームに戻る</a>
+
+    <section class="hero">
+      <h1>韓国の空港アクセス</h1>
+      <p>空港からソウル市内への移動方法をチェックしよう。</p>
+    </section>
+
+    <!-- 空港切り替えタブ -->
+    <div class="airport-tabs">
+      <button class="airport-tab active" data-airport="incheon">
+        仁川国際空港
+      </button>
+
+      <button class="airport-tab" data-airport="gimpo">
+        金浦国際空港
+      </button>
+    </div>
+
+    <!-- 仁川国際空港 -->
+    <main id="incheon">
+
+      <h2 class="section-title">仁川国際空港から市内へ</h2>
+
+      <!-- 地下鉄 -->
+      <section class="card">
+        <span class="tag">リーズナブルに移動</span>
+        <h2>地下鉄</h2>
+
+        <p>
+          仁川空港からは空港鉄道や地下鉄を利用して、
+          ソウル市内の各エリアへ移動できます。
+        </p>
+
+        <p>
+          交通カードを利用すれば、乗車時に毎回切符を購入する
+          手間を減らせます。
+        </p>
+
+        <div class="info">
+          <strong>こんな人におすすめ</strong><br>
+          ・交通費を抑えたい<br>
+          ・荷物が比較的少ない<br>
+          ・地下鉄の乗り換えに慣れている
+        </div>
+
+        <a class="sub-link"
+           href="https://www.airport.kr/"
+           target="_blank" rel="noopener">
+          仁川空港公式サイトを見る →
+        </a>
+      </section>
+
+      <!-- AREX -->
+      <section class="card">
+        <span class="tag">ソウル駅へ移動</span>
+        <h2>AREX（空港鉄道）</h2>
+
+        <p>
+          仁川空港とソウル駅を結ぶ空港鉄道です。
+          直通列車と一般列車の2種類があります。
+        </p>
+
+        <div class="info">
+          <strong>直通列車</strong><br>
+          仁川空港からソウル駅までノンストップで移動できます。
+          <br><br>
+
+          <strong>一般列車</strong><br>
+          各駅に停車します。弘大入口駅や孔徳駅など、
+          途中の駅で降りたい場合に便利です。
+        </div>
+
+        <div class="info">
+          <strong>こんな人におすすめ</strong><br>
+          ・渋滞を避けて移動したい<br>
+          ・ソウル駅や弘大方面へ行きたい<br>
+          ・時間を読みやすい交通手段がいい
+        </div>
+
+        <a class="link-button"
+           href="https://www.arex.or.kr/"
+           target="_blank" rel="noopener">
+          AREX公式サイトを見る
+        </a>
+      </section>
+
+      <!-- 空港リムジンバス -->
+      <section class="card">
+        <span class="tag">乗り換えなしで移動</span>
+        <h2>空港リムジンバス</h2>
+
+        <p>
+          空港からソウル市内の主要エリアへ向かうバスです。
+          大きな荷物を持っているときや、
+          乗り換えなしで移動したいときに便利です。
+        </p>
+
+        <div class="info">
+          <strong>乗車場所の目安</strong><br>
+          第1ターミナル：1階到着ロビー外のバス乗り場<br>
+          第2ターミナル：地下1階交通センター<br><br>
+          ※乗り場は路線によって異なります。
+          当日の案内表示や乗車券を確認してください。
+        </div>
+
+        <div class="info">
+          <strong>主な行き先</strong><br>
+          ・東大門（トンデムン）<br>
+          ・明洞（ミョンドン）<br>
+          ・汝矣島（ヨイド）など19箇所
+        </div>
+
+        <p>
+          目的地に合わせて片道・往復のチケットを選べます。
+        </p>
+
+        <div class="button-grid">
+
+          <a class="link-button"
+             href="https://hb.afl.rakuten.co.jp/hgc/59efc1b9.990c1cd3.59efc1ba.1d32cfdd/?pc=https%3A%2F%2Fexperiences.travel.rakuten.co.jp%2Fexperiences%2F37984&link_type=hybrid_url&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6Imh5YnJpZF91cmwiLCJjb2wiOjF9"
+             target="_blank"
+             rel="noopener sponsored">
+            片道で予約する
+          </a>
+
+          <a class="link-button"
+             href="https://hb.afl.rakuten.co.jp/hgc/59efc1b9.990c1cd3.59efc1ba.1d32cfdd/?pc=https%3A%2F%2Fexperiences.travel.rakuten.co.jp%2Fexperiences%2F41585&link_type=hybrid_url&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6Imh5YnJpZF91cmwiLCJjb2wiOjF9"
+             target="_blank"
+             rel="noopener sponsored">
+            往復で予約する
+          </a>
+
+        </div>
+
+        <p class="note">
+          ※路線番号・運行状況・停留所・料金は変更される場合があります。
+          乗車前にバス運行会社の公式情報をご確認ください。
+        </p>
+
+        <a class="sub-link"
+           href="https://www.airport.kr/"
+           target="_blank" rel="noopener">
+          仁川空港公式サイトを見る →
+        </a>
+      </section>
+
+    </main>
+
+    <!-- 金浦国際空港 -->
+    <main id="gimpo" class="hidden">
+
+      <div class="coming-soon">
+        <h2>金浦国際空港</h2>
+        <p>
+          金浦空港から市内へのアクセス情報は、
+          現在準備中です。
+        </p>
+        <span class="tag">COMING SOON</span>
+      </div>
+
+    </main>
+
   </div>
 
-  <div class="info">
-    <strong>主な行き先</strong><br>
-    ・東大門（トンデムン）<br>
-    ・明洞（ミョンドン）<br>
-    ・汝矣島（ヨイド）など19箇所
-  </div>
+  <footer>
+    © 2026 Korea Pick
+  </footer>
 
-  <p>
-    目的地に合わせて片道・往復のチケットを選べます。
-  </p>
+  <script>
+    const tabs = document.querySelectorAll(".airport-tab");
 
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px;">
-    <a class="link-button"
-       style="margin-top:0;"
-       href="https://hb.afl.rakuten.co.jp/hgc/59efc1b9.990c1cd3.59efc1ba.1d32cfdd/?pc=https%3A%2F%2Fexperiences.travel.rakuten.co.jp%2Fexperiences%2F37984&link_type=hybrid_url&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6Imh5YnJpZF91cmwiLCJjb2wiOjF9"
-       target="_blank"
-       rel="noopener sponsored">
-      片道で予約する
-    </a>
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const selectedAirport = tab.dataset.airport;
 
-    <a class="link-button"
-       style="margin-top:0;"
-       href="https://hb.afl.rakuten.co.jp/hgc/59efc1b9.990c1cd3.59efc1ba.1d32cfdd/?pc=https%3A%2F%2Fexperiences.travel.rakuten.co.jp%2Fexperiences%2F41585&link_type=hybrid_url&ut=eyJwYWdlIjoidXJsIiwidHlwZSI6Imh5YnJpZF91cmwiLCJjb2wiOjF9"
-       target="_blank"
-       rel="noopener sponsored">
-      往復で予約する
-    </a>
-  </div>
+        tabs.forEach(item => {
+          item.classList.remove("active");
+        });
 
-  <p class="note">
-    ※路線番号・運行状況・停留所・料金は変更される場合があります。
-    乗車前にバス運行会社の公式情報をご確認ください。
-  </p>
+        tab.classList.add("active");
 
-  <a class="sub-link"
-     href="https://www.airport.kr/"
-     target="_blank" rel="noopener">
-    仁川空港公式サイトを見る →
-  </a>
-</section>
+        document.getElementById("incheon").classList.add("hidden");
+        document.getElementById("gimpo").classList.add("hidden");
+
+        document.getElementById(selectedAirport).classList.remove("hidden");
+      });
+    });
+  </script>
+
+</body>
+</html>
